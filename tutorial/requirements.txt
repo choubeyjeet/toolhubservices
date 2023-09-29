@@ -1,4 +1,4 @@
-Django==3.2.21
+Django==4.2.21
 djangorestframework==3.14.0
 numpy==1.21.6
 opencv_contrib_python==4.8.0.76
