@@ -6,10 +6,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from io import BytesIO
-from PIL import Image, ImageFilter
+from PIL import Image
 import base64
-import requests
-import re
 import cv2
 class ImageToSketch(APIView):
 
@@ -28,11 +26,13 @@ class ImageToSketch(APIView):
             input_array = np.array(img)
 
             if sketch_type=="charcoal":
+                
                 grey_img = cv2.cvtColor(input_array, cv2.COLOR_BGR2GRAY)
                 _, result = cv2.threshold(grey_img, 120, 220, cv2.THRESH_BINARY_INV)
-               
+                
 
             elif sketch_type=="oil":
+                
                 result = cv2.xphoto.oilPainting(input_array, 6, 3)
 
             elif sketch_type=="water":
