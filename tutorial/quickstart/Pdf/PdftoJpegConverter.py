@@ -1,6 +1,6 @@
 import os
 import tempfile
-from django.http import Http404, FileResponse, JsonResponse
+from django.http import  JsonResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -63,5 +63,5 @@ class PdftoJpegConverter(APIView):
                 return JsonResponse({"path": converted_filename})
 
         except Exception as e:
-            print(e)
-            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            
+            return JsonResponse({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
