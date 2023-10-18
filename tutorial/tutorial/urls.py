@@ -24,6 +24,10 @@ from quickstart.Pdf.PdfDownload import DownloadPDF
 from quickstart.Pdf.PdftoJpegConverter import PdftoJpegConverter
 from quickstart.Pdf.PdfEdit.PdfEditBase64ToImg import PdfEditBase64ToImg
 from quickstart.Image.ImageToPdf import ImageToPdf
+from quickstart.Image.ImageBlurFace import ImageBlurFace
+from quickstart.Image.ImageBlackColor import ImageBlackColor
+from quickstart.Image.ImageRestore import ImageRestore
+from quickstart.Image.ImageHtmlJpeg import ImageHtmlJpeg
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('removebg', ImageRemoveBackground.as_view(),name='ImageRemoveBackground'),
@@ -33,4 +37,12 @@ urlpatterns = [
     path('pdf/jpeg', PdftoJpegConverter.as_view(),name='PdftoJpegConverter'),
     path('pdf/edit/basetoimg', PdfEditBase64ToImg.as_view(),name='PdfEditBase64ToImg'),
     path('image/pdf', ImageToPdf.as_view(),name='ImageToPdf'),
+    path('blur', ImageBlurFace.as_view(),name='ImageBlurFace'),
+    path('color', ImageBlackColor.as_view(),name='ImageBlackColor'),
+    path('restore', ImageRestore.as_view(),name='ImageRestore'),
+    path('image/html', ImageHtmlJpeg.as_view(),name='ImageHtmlJpeg'),
+
+    
+
+    
 ]
